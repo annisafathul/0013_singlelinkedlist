@@ -128,4 +128,83 @@ class LinkedList
         }
 
     }
-}
+};
+
+
+int main()
+{
+    LinkedList mhs;
+    int nim;
+    char ch;
+
+    do 
+    {
+        cout << "\nMenu" << endl;
+        cout << "1. Menambahkan data ke dalam list" << endl;
+        cout << "2. Menghapus data dari list" << endl;
+        cout << "3. Menampilkan data dalam list" << endl;
+        cout << "4. Mencari data dalam list" << endl;
+        cout << "5. Keluar" << endl;
+        
+        cout << "\nMasukkan pilihan (1-5): ";
+        cin >> ch;
+
+         switch (ch)
+        {
+            case '1':
+                mhs.addNode();
+                break;
+
+            case '2':
+                if (mhs.listEmpty())
+                {
+                    cout << "\nList Kosong\n";
+                    break;
+                } 
+                
+                cout << "\nMasukkan nomor mahasiswa yang akan dihapus: ";
+                cin >> nim;
+
+                if (mhs.delNode(nim))
+                    cout << "\nData tidak ditemukan " << endl;
+                else
+                    cout << "\nData dengan nomor " << nim << " berhasil dihapus\n";
+                break;
+
+            case '3':
+                mhs.traverse();
+                break;
+
+
+            case '4':
+                if (mhs.listEmpty())
+                {
+                    cout << "\nList Kosong\n";
+                    break;
+                }
+
+                Node *previous, *current;
+                cout << "\nMasukkan nomor mahasiswa yang akan dicari: ";
+                cin >> nim;
+
+                if (mhs.search(nim, previous, current))
+                    cout << "\nData tidak ditemukan\n";
+                else
+                { 
+                    cout << "\nData ditemukan\n";
+                    cout << "\n NIM Mahasiswa : " << current->noMhs << endl;
+                }
+                break;
+        }
+            case '5':
+                break;
+
+
+            default:
+                cout << "\nPilihan salah!\n";
+        }
+    } while (ch != '5');
+    
+    return 0;
+};
+
