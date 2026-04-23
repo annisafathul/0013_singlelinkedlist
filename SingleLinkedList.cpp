@@ -43,6 +43,8 @@ class LinkedList
         node * previous = START;
         node * current = START; 
 
+        
+
          if (START == NULL || START->noMhs >= nodeBaru->noMhs)
         {
             if (START != NULL && START->noMhs == nodeBaru->noMhs)
@@ -72,3 +74,10 @@ class LinkedList
         }
 
         
+
+        bool listEmpty()
+        {
+            return (START == NULL);
+        }
+    }
+}
