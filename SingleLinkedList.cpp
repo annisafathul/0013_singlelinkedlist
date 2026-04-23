@@ -26,4 +26,16 @@ class LinkedList
 
         node * nodeBaru = new node();
         nodeBaru->noMhs = nim;
+
+          if (START == NULL || START->noMhs >= nodeBaru->noMhs)
+        {
+            if (START != NULL && START->noMhs == nodeBaru->noMhs)
+            {
+                cout << "\nDuplikasi noMhs tidak diijinkan\n";
+                return;
+            }
         
+            nodeBaru->next = START;
+            START = nodeBaru;   
+            return;
+        }
